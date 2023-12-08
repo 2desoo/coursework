@@ -39,6 +39,8 @@ public class Main {
         printAllEmployees(1,employee);
         printMinNumber(67000, employee);
         printMaxNumber(67000, employee);
+
+        printNumber(7);
     }
 
     public static void printInfo(Employee[] employee) {
@@ -207,5 +209,12 @@ public class Main {
             name = value.getFullName();
             if (sum >= number) System.out.println("ID: " + id + ". Ф.И.О. " + name + ". Зарплата: " + sum);
         }
+    }
+
+    public static void printNumber(int number) {
+        System.out.println("Билет №6:");
+        int square = 0;
+        square = number * number;
+        System.out.println("7 в квадрате = " + square);
     }
 }
