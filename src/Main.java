@@ -36,13 +36,12 @@ public class Main {
         printMaxDepartment(1, employee);
         printTotalDepartment(1, employee);
         printAverageDepartment(1, employee);
-        indexingDepartment(1,employee);
+        indexingDepartment(1,employee, 3);
         printAllEmployees(1,employee);
         printMinNumber(67000, employee);
         printMaxNumber(67000, employee);
 
         printNumber(9);
-//        printNumber(9);
     }
 
     public static void printInfo(Employee[] employee) {
@@ -177,15 +176,15 @@ public class Main {
         System.out.println(average);
     }
 
-    public static void indexingDepartment(int department, Employee[] employee) {
+    public static void indexingDepartment(int department, Employee[] employee, int percent) {
         System.out.println("2. e)");
-        int sum = 0, index = 2, total = 0;
+        int sum = 0, total = 0;
         String name = "";
         for (Employee value : employee) {
             if (department == value.getDepartment()) {
                 sum = value.getSalary();
                 name = value.getFullName();
-                total = sum + (sum * index / 100);
+                total = sum + (sum * percent / 100);
                 System.out.println("Зарплата сотрудника: " + name + ". При индексации зарплаты в 2% составляет: "
                         + total + " рублей.");
             }
