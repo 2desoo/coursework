@@ -35,12 +35,14 @@ public class Main {
         printMinDepartment(1, employee);
         printMaxDepartment(1, employee);
         printTotalDepartment(1, employee);
+        printAverageDepartment(1, employee);
         indexingDepartment(1,employee);
         printAllEmployees(1,employee);
         printMinNumber(67000, employee);
         printMaxNumber(67000, employee);
 
-        printNumber(7);
+        printNumber(9);
+//        printNumber(9);
     }
 
     public static void printInfo(Employee[] employee) {
@@ -115,7 +117,7 @@ public class Main {
         for (int i = 0; i < employee.length; i++) {
             sum = employee[i].getSalary();
             name = employee[i].getFullName();
-            total = total + sum;
+            total = sum;
             total = total + (total * index / 100);
             System.out.println("Зарплата сотрудника: " + name + ". При индексации зарплаты в 2% составляет: "
                     + total + " рублей.");
@@ -158,6 +160,21 @@ public class Main {
         }
         System.out.println("Сумма затрат на зарплату в отделе №1, составляет = "
                 + sum + " рублей.");
+    }
+
+    public static void printAverageDepartment(int department, Employee[] employee) {
+        System.out.println("2. d)");
+        int sum = 0, average = 0, counter = 0;
+        for (Employee value : employee) {
+            if (value != null) {
+                if (value.getDepartment() == department) {
+                    counter++;
+                    sum += value.getSalary();
+                    average = sum / counter;
+                }
+            }
+        }
+        System.out.println(average);
     }
 
     public static void indexingDepartment(int department, Employee[] employee) {
@@ -215,6 +232,6 @@ public class Main {
         System.out.println("Билет №6:");
         int square = 0;
         square = number * number;
-        System.out.println("7 в квадрате = " + square);
+        System.out.println("9 в квадрате = " + square);
     }
 }
