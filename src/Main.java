@@ -94,8 +94,8 @@ public class Main {
         int average = 0;
         for (Employee value : employee) {
             sum += value.getSalary();
-            average = sum / total;
         }
+        average = sum / total;
         System.out.println("Среднее значение зарплат = " + average + " рублей.");
     }
 
@@ -128,12 +128,16 @@ public class Main {
         int min = Integer.MAX_VALUE;
         String name = "";
         for (Employee value : employee) {
-            if (value.getSalary() < min && department == value.getDepartment() && value.getDepartment() != 0) {
+            if (value.getSalary() < min && department == value.getDepartment()) {
                 min = value.getSalary();
                 name = value.getFullName();
             }
         }
-        System.out.println("Сотрудник с минимальной зарплатой в " + min + " рублей. В отделе №1, это " + name);
+        if (name.isBlank()) {
+            System.out.println("В отделе " + department + ", нет сотрудников.");
+        } else {
+            System.out.println("Сотрудник с минимальной зарплатой в " + min + " рублей. В отделе №1, это " + name);
+        }
     }
 
     public static void printMaxDepartment(int department) {
@@ -142,11 +146,15 @@ public class Main {
         String name = "";
         for (Employee value : employee) {
             if (value.getSalary() > max && department == value.getDepartment()) {
-                max =value.getSalary();
+                max = value.getSalary();
                 name = value.getFullName();
             }
         }
-        System.out.println("Сотрудник с максимальной зарплатой в " + max + " рублей. В отделе № 1, это " + name);
+        if (name.isBlank()) {
+            System.out.println("В отделе " + department + ", нет сотрудников.");
+        } else {
+            System.out.println("Сотрудник с максимальной зарплатой в " + max + " рублей. В отделе № 1, это " + name);
+        }
     }
 
     public static void printTotalDepartment(int department) {
@@ -169,9 +177,9 @@ public class Main {
                 if (value.getDepartment() == department) {
                     counter++;
                     sum += value.getSalary();
-                    average = sum / counter;
                 }
             }
+            average = sum / counter;
         }
         System.out.println(average);
     }
@@ -185,6 +193,7 @@ public class Main {
                 sum = value.getSalary();
                 name = value.getFullName();
                 total = sum + (sum * percent / 100);
+                value.setSalary(total);
                 System.out.println("Зарплата сотрудника: " + name + ". При индексации зарплаты в 2% составляет: "
                         + total + " рублей.");
             }

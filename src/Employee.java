@@ -11,6 +11,14 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         this.id = ++counter;
+//        setSalary(salary);
+//        if (salary < 0) {
+//            throw new IllegalArgumentException("Значение зарплаты должно быть положительным.");
+//        }
+//        setDepartment(department);
+//        if (department < 0 || department > 5) {
+//            throw new IllegalArgumentException("Значение департамента должно быть от 1 до 5");
+//        }
     }
 
     public int getId() {
@@ -31,7 +39,7 @@ public class Employee {
     }
 
     public void setDepartment(int department) {
-        if (department < 0 && department > 5) {
+        if (department < 0 || department > 5) {
             throw new IllegalArgumentException("Значение департамента должно быть от 1 до 5");
         }
         this.department = department;
